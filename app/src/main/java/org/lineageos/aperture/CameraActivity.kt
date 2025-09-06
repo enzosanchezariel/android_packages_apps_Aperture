@@ -293,7 +293,9 @@ open class CameraActivity : AppCompatActivity() {
             super.handleMessage(msg)
             when (msg.what) {
                 MSG_HIDE_ZOOM_SLIDER -> {
-                    zoomLevel.isVisible = false
+                    if (cameraMode != CameraMode.QR) {
+                        zoomLevel.isVisible = false
+                    }
                 }
 
                 MSG_HIDE_FOCUS_RING -> {
