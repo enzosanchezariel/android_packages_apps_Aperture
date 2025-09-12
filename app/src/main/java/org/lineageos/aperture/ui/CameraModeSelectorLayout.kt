@@ -124,6 +124,7 @@ class CameraModeSelectorLayout @JvmOverloads constructor(
         val inSingleCaptureMode = cameraViewModel?.inSingleCaptureMode?.value ?: return
         val cameraState = cameraViewModel?.cameraState?.value ?: return
 
+        cameraModeHighlightButton.isInvisible = cameraState.isRecordingVideo || inSingleCaptureMode
         cameraToButton.forEach {
             it.value.isInvisible = cameraState.isRecordingVideo || inSingleCaptureMode
         }
