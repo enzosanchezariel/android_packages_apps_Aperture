@@ -256,7 +256,7 @@ open class CameraActivity : AppCompatActivity() {
             override fun onFling(
                 e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float
             ): Boolean {
-                if (!handler.hasMessages(MSG_ON_PINCH_TO_ZOOM) &&
+                if (!singleCaptureMode && !handler.hasMessages(MSG_ON_PINCH_TO_ZOOM) &&
                     abs(e1.x - e2.x) > 75 * resources.displayMetrics.density
                 ) {
                     if (e2.x > e1.x) {
